@@ -31,4 +31,3 @@ Services requires root:
 
   To see: 
     [Skip_network_validation](http://github.com/ferhung/Skip_network_validation)
-# android_device_Xiaomi_HM2014011
