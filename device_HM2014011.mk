@@ -60,6 +60,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.modem.rc:root/init.modem.rc \
     $(LOCAL_PATH)/rootdir/ueventd.mt6582.rc:root/ueventd.mt6582.rc \
     $(LOCAL_PATH)/rootdir/init.mt6582.usb.rc:root/init.mt6582.usb.rc \
+    $(LOCAL_PATH)/rootdir/twrp.fstab:root/etc/twrp.fstab \
     $(LOCAL_KERNEL):kernel
 
 # Rootdir
