@@ -1,0 +1,2 @@
+# Wifi device used by net daemon
+type wmtWifi_device, dev_type;
