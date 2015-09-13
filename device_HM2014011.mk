@@ -47,6 +47,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio_policy.conf:system/vendor/etc/audio_policy.conf
 
+# Bluetooth
+PRODUCT_PACKAGES += \
+    libbt-vendor
+    
 # Keylayout
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/mtk-kpd.kl:system/usr/keylayout/mtk-kpd.kl
