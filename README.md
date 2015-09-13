@@ -14,7 +14,7 @@ This is a device tree for Xiaomi Redmi_1s_TD(HM2014011) which is based on MT6582
         
         # source build/envsetup.sh
 
-        # brunch cm_HM2014011-eng
+        # brunch cm_HM2014011-userdebug
 
 # Limitations
 
