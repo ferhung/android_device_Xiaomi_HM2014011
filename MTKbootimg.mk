@@ -31,11 +31,11 @@ $(INSTALLED_KERNEL_TARGET).mtk: $(INSTALLED_KERNEL_TARGET).mtk.header
 INSTALLED_RAMDISK_TARGET := $(BUILT_RAMDISK_TARGET)
 $(INSTALLED_RAMDISK_TARGET): $(MKBOOTFS) $(INTERNAL_RAMDISK_FILES) | $(MINIGZIP)
 	$(call pretty,"Target ram disk: $@")
-	cmp -s device/Xiaomi/HM2014011/rootdir/root/custom_init out/target/product/HM2014011/root/init; \
+	cmp -s device/Xiaomi/HM2014011/rootdir/custom_init out/target/product/HM2014011/root/init; \
 	RETVAL=$$?; \
 	if [ $$RETVAL -eq 1 ]; then \
 		mv out/target/product/HM2014011/root/init out/target/product/HM2014011/root/init2; \
-		cp device/Xiaomi/HM2014011/rootdir/root/custom_init out/target/product/HM2014011/root/init; \
+		cp device/Xiaomi/HM2014011/rootdir/custom_init out/target/product/HM2014011/root/init; \
 	fi
 	$(hide) $(MKBOOTFS) $(TARGET_ROOT_OUT) | $(MINIGZIP) > $@
 
