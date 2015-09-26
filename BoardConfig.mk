@@ -92,10 +92,6 @@ TW_EXCLUDE_SUPERSU := true
 TW_INCLUDE_FB2PNG := true
 TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
 
-# Deodex
-WITH_DEXPREOPT := false
-DISABLE_DEXPREOPT := true
-
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_MTK := true
