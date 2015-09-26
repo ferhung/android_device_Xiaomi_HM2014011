@@ -72,6 +72,7 @@ on init
     # GPS
     chmod 0666 /dev/gps
     chmod 0660 /dev/stpgps
+    mkdir /data/agps_supl 0771 gps system
     chown gps gps /dev/stpgps
     chown gps gps /sys/class/gpsdrv/gps/pwrctl
     chown gps gps /sys/class/gpsdrv/gps/suspend
@@ -353,9 +354,6 @@ on fs
 
     write /proc/bootprof "INIT:NAND:Mount_END"
 
-    mkdir /data/agps_supl 0771 gps system
-    mkdir /data/gps_mnl 0771 gps system
-
 on property:wlan.driver.status=ok
 	write /dev/wmtWifi "1"
 
@@ -573,28 +571,14 @@ service agpsd /system/bin/mtk_agpsd
     socket agpsd stream 660 gps system
     socket agpsd2 stream 660 gps system
     socket agpsd3 stream 660 gps system
-    user root
+    user gps
     group gps ccci inet sdcard_r sdcard_rw misc
-    oneshot
 
 service mnld /system/xbin/mnld
-    class main
-    user root
-    group system gps inet misc sdcard_rw sdcard_r media_rw
+    user gps
+    group nvram gps inet misc sdcard_rw sdcard_r media_rw
     socket mnld stream 660 gps system
-    oneshot
-
-service wifi2agps /system/bin/wifi2agps
-    class main
-    user root
-    group gps inet
-    oneshot
-
-service BGW /system/xbin/BGW
-    user root
-    group gps system radio
-    class main
-    oneshot
+    disabled
 
 # virtual sdcard daemon running as media_rw (1023)
 service sdcard /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated
