@@ -590,6 +590,11 @@ service mnld /system/xbin/mnld
     socket mnld stream 660 gps system
     disabled
 
+# healthd
+service charger /sbin/healthd -c
+    class charger
+    seclabel u:r:healthd:s0
+
 # virtual sdcard daemon running as media_rw (1023)
 service sdcard /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated
     class late_start
