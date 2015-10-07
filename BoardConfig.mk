@@ -98,6 +98,12 @@ BOARD_HAVE_BLUETOOTH_MTK := true
 BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/Xiaomi/HM2014011/bluetooth
 
+# Healthd
+HEALTHD_ENABLE_TRICOLOR_LED := true
+RED_LED_PATH := /sys/class/leds/red/brightness
+GREEN_LED_PATH := /sys/class/leds/green/brightness
+BLUE_LED_PATH := /sys/class/leds/blue/brightness
+
 # EGL settings
 BOARD_EGL_CFG := device/Xiaomi/HM2014011/configs/egl.cfg
 USE_OPENGL_RENDERER := true
