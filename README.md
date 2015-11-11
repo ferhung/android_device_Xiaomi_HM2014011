@@ -10,6 +10,12 @@ This is a device tree for Xiaomi Redmi_1s_TD(HM2014011) which is based on MT6582
         
         # repo sync
 
+* PS: Don't forget to merge my pivate source to upstream. Such as in folder "system/core", do openning Terminal:
+
+        # git remote add upstream https://github.com/CyanogenMod/android_system_core.git
+        # git fetch upstream cm-12.1
+        # git merge upstream/cm-12.1
+
 * full build
         
         # source build/envsetup.sh
