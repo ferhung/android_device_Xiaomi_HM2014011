@@ -33,7 +33,8 @@ PRODUCT_PACKAGES += \
 
 # audio
 PRODUCT_PACKAGES += \
-    audio.r_submix.default
+    audio.r_submix.default \
+    audio.a2dp.default
 
 PRODUCT_PACKAGES += \
     audio.primary.mt6582
