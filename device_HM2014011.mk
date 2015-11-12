@@ -104,6 +104,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     charger_res_images
 
+# Try to fix asec on emulated sdcard
+PRODUCT_PACKAGES += \
+    asec_helper
+
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
 	$(LOCAL_PATH)/configs/media_codecs.xml:system/etc/permissions/media_codecs.xml \
