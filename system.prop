@@ -47,7 +47,7 @@ mediatek.wlan.ctia=0
 
 
 #
-wifi.tethering.interface=wlan0
+wifi.tethering.interface=ap0
 
 ro.opengles.version=131072
 
