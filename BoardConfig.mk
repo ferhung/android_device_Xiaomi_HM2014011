@@ -19,6 +19,8 @@ TARGET_CPU_MEMCPY_OPT_DISABLE := true
 
 BOARD_HAS_NO_SELECT_BUTTON := true
 
+BLOCK_BASED_OTA=false
+
 # Enable dex-preoptimization
 WITH_DEXPREOPT := true
 DONT_DEXPREOPT_PREBUILTS := true
