@@ -1,6 +1,8 @@
 # inherit from the proprietary version
 -include vendor/Xiaomi/HM2014011/BoardConfigVendor.mk
 
+LOCAL_PATH := device/Xiaomi/HM2014011
+
 # Board
 TARGET_BOARD_PLATFORM := mt6582
 TARGET_CPU_ABI := armeabi-v7a
@@ -16,6 +18,8 @@ TARGET_CPU_VARIANT:= cortex-a7
 TARGET_CPU_MEMCPY_OPT_DISABLE := true
 
 BOARD_HAS_NO_SELECT_BUTTON := true
+
+BLOCK_BASED_OTA=false
 
 # Enable dex-preoptimization
 WITH_DEXPREOPT := true
@@ -33,6 +37,7 @@ TARGET_OTA_ASSERT_DEVICE := HM2014011,wt93807
 # MTK HARDWARE
 BOARD_HAS_MTK_HARDWARE := true
 MTK_HARDWARE := true
+BOARD_USES_LEGACY_MTK_AV_BLOB := true
 COMMON_GLOBAL_CFLAGS += -DMTK_HARDWARE -DADD_LEGACY_ACQUIRE_BUFFER_SYMBOL
 COMMON_GLOBAL_CPPFLAGS += -DMTK_HARDWARE
 
@@ -62,12 +67,12 @@ TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 BOARD_KERNEL_CMDLINE :=
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
-TARGET_PREBUILT_KERNEL := device/Xiaomi/HM2014011/kernel
-BOARD_CUSTOM_BOOTIMG_MK := device/Xiaomi/HM2014011/MTKbootimg.mk
+TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/kernel
+BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/MTKbootimg.mk
 BOARD_CUSTOM_BOOTIMG := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/Xiaomi/HM2014011/rootdir/recovery.fstab
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/recovery.fstab
 
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/virtual/android_usb/android0/f_mass_storage/lun%d/file"
 
@@ -96,7 +101,7 @@ TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_MTK := true
 BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/Xiaomi/HM2014011/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 
 # Healthd
 HEALTHD_ENABLE_TRICOLOR_LED := true
@@ -105,22 +110,15 @@ GREEN_LED_PATH := /sys/class/leds/green/brightness
 BLUE_LED_PATH := /sys/class/leds/blue/brightness
 
 # EGL settings
-BOARD_EGL_CFG := device/Xiaomi/HM2014011/configs/egl.cfg
+BOARD_EGL_CFG := $(LOCAL_PATH)/configs/egl.cfg
 USE_OPENGL_RENDERER := true
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
 
 # Selinux
-BOARD_SEPOLICY_DIRS := \
-       device/Xiaomi/HM2014011/sepolicy
-
-BOARD_SEPOLICY_UNION := \
-       device.te \
-       app.te \
-       netd.te \
-       system.te \
-       file_contexts
+BOARD_SEPOLICY_DIRS := $(LOCAL_PATH)/sepolicy
 
 # WIFI
+BOARD_WLAN_DEVICE := MediaTek
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 BOARD_HOSTAPD_DRIVER := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_mt66xx
@@ -132,4 +130,4 @@ WIFI_DRIVER_FW_PATH_AP:=AP
 WIFI_DRIVER_FW_PATH_P2P:=P2P
 
 # GPS
-TARGET_SPECIFIC_HEADER_PATH := device/Xiaomi/HM2014011/include
+TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
