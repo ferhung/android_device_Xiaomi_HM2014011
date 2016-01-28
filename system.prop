@@ -13,6 +13,9 @@ fmradio.driver.enable=1
 ril.radiooff.poweroffMD=0
 persist.multisim.config=dsds
 persist.radio.multisim.config=dsds
+persist.radio.default.sim=0
+ro.telephony.default_network=0,1
+
 persist.dsds.enabled=true
 ro.dual.sim.phone=true
 mux.debuglog.enable=1
